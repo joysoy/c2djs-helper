@@ -71,8 +71,8 @@ module.exports = function (grunt) {
 
             var lastedDir = '';
 
-            matched_files.forEach(function (f) {
-                var pathObj = path.parse(f);
+            matched_files.forEach(function (file) {
+                var pathObj = path.parse(file);
                 var dir = pathObj.dir.length > 0 ? pathObj.dir + '/' : '';
                 var resName = fmtResName(pathObj.base);
                 if(!used_name[resName]) {
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
 
                     lastedDir = dir;
                 }
-                resource_file += '\t' + resName + ': ' + '"' + f.src + dir + pathObj.base + '",\n';
+                resource_file += '\t' + resName + ': ' + '"' + f.src.toString() + '/' + dir + pathObj.base + '",\n';
             });
 
             resource_file += '};\n\n';

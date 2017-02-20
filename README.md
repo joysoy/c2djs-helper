@@ -88,3 +88,6 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 v 0.1.0
 * 创建项目，实现基本功能。
+
+v 0.1.2
+* 修复部分错误。

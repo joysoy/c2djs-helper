@@ -1,14 +1,12 @@
 var res = {
 	// Subdirectory: aa/res/, Order: [A-Z]
-	Avatar_png: "aa/res/avatar.png",
-	Background_jpg: "aa/res/background.jpg",
-	HelloWorld_png: "aa/res/hello_world.png",
-	Star_png: "aa/res/star.png",
+	Background_jpg: "test/fixtures/res/aa/res/background.jpg",
+	HelloWorld_png: "test/fixtures/res/aa/res/hello_world.png",
+	Star_png: "test/fixtures/res/aa/res/star.png",
 
-	Avatar1_png: "avatar.png",
-	Background1_jpg: "background.jpg",
-	HelloWorld1_png: "HelloWorld.png",
-	Star1_png: "star.png",
+	Background1_jpg: "test/fixtures/res/background.jpg",
+	HelloWorld1_png: "test/fixtures/res/HelloWorld.png",
+	Star1_png: "test/fixtures/res/star.png",
 };
 
 var g_resources = [];
