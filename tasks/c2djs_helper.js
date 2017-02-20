@@ -90,7 +90,7 @@ module.exports = function (grunt) {
 
                     lastedDir = dir;
                 }
-                resource_file += '\t' + resName + ': ' + '"' + dir + pathObj.base + '",\n';
+                resource_file += '\t' + resName + ': ' + '"' + f.src + dir + pathObj.base + '",\n';
             });
 
             resource_file += '};\n\n';
