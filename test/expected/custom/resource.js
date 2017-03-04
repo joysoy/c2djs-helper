@@ -12,7 +12,7 @@ var res = {
 var g_resources = [];
 for (var i in res) {
 	var pattern = /LazyLoadImg_[0-9]{0,}_jpg/;
-	if(pattern.exec(i));
+	if(pattern.exec(i))
 		continue;
 	g_resources.push(res[i]);
 }
