@@ -42,7 +42,8 @@ module.exports = function (grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             sort: false,
-            extension: '*.png'
+            extension: '*.png',
+            lazyLoadRegex: ''
         });
 
         // to avoid the duplicate resource name in the res object
@@ -96,6 +97,11 @@ module.exports = function (grunt) {
             resource_file += '};\n\n';
             resource_file += 'var g_resources = [];\n';
             resource_file += 'for (var i in res) {\n';
+            if(options.lazyLoadRegex !== '' && options.lazyLoadRegex instanceof RegExp) {
+                resource_file += '\tvar pattern = ' + options.lazyLoadRegex + ';\n';
+                resource_file += '\tif(pattern.exec(i));\n';
+                resource_file += '\t\tcontinue;\n';
+            }
             resource_file += '\tg_resources.push(res[i]);\n';
             resource_file += '}\n';
 

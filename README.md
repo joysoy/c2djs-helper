@@ -49,6 +49,12 @@ Default value: `*.png`
 
 指定需要读取的资源文件的扩展名，默认为png文件（`*.png`），如果需要指定多个扩展名，格式为`{*.png,*.jpg,*.JPEG}`
 
+#### options.lazyLoadRegex
+Type: `RegExp`
+Default value: ``
+
+指定不需要预先加载的资源名称的正则表达式，会在相应的位置添加过滤代码，以阻止匹配的资源被预先加载。置空或非法的RegExp对象将使该功能无效，默认情况下值为空。
+
 ### Usage Examples
 
 #### Default Options
@@ -66,14 +72,15 @@ grunt.initConfig({
 ```
 
 #### Custom Options
-自定义选项的例子里，`sort`选项开启了资源排序功能，开启排序后资源将根据目录及资源名称的升序进行排序。而`extension`选项指定了需要读取的资源文件的扩展名，这里指定的是读取png和jpg文件。
+自定义选项的例子里，`sort`选项开启了资源排序功能，开启排序后资源将根据目录及资源名称的升序进行排序。而`extension`选项指定了需要读取的资源文件的扩展名，这里指定的是读取png和jpg文件，最后`lazyLoadRegex`选项指示了那些不需要被预先加载的资源名称的匹配规则。
 
 ```js
 grunt.initConfig({
   c2djs_helper: {
     options: {
       sort: true,
-      extension: '{*.png,*.jpg,*.JPEG}'
+      extension: '{*.png,*.jpg,*.JPEG}',
+      lazyLoadRegex: /LazyLoadImg_[0-9]{0,}_jpg/
     },
     files: {
       'dest/resource.js': ['res'],
@@ -91,3 +98,6 @@ v 0.1.0
 
 v 0.1.2
 * 修复部分错误。
+
+v 0.2.0
+* 新增非预加载资源过滤功能。
