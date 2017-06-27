@@ -32,7 +32,7 @@ module.exports = function (grunt) {
             ret += upperCase(tmp[i]);
         }
 
-        return ret.replace(/_/g, '') + ver + '_' + second.toLowerCase();
+        return ret.replace(/_|-/g, '') + ver + '_' + second.toLowerCase();
     };
 
     // Please see the Grunt documentation for more information regarding task

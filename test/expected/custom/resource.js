@@ -6,7 +6,7 @@ var res = {
 
 	Background1_jpg: "test/fixtures/res/background.jpg",
 	HelloWorld1_png: "test/fixtures/res/HelloWorld.png",
-	Star1_png: "test/fixtures/res/star.png",
+	Star1_png: "test/fixtures/res/star-1.png",
 };
 
 var g_resources = [];
