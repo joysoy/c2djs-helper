@@ -55,6 +55,12 @@ Default value: ``
 
 指定不需要预先加载的资源名称的正则表达式，会在相应的位置添加过滤代码，以阻止匹配的资源被预先加载。置空或非法的RegExp对象将使该功能无效，默认情况下值为空。
 
+#### options.withTTF
+Type: `Boolean`
+Default value: `false`
+
+用于决定是否开启对TTF（字体）文件的支持。开启该选项，字体文件将会被载入，之后可以在cc.LabelTTF的调用中被使用。
+
 ### Usage Examples
 
 #### Default Options
@@ -80,7 +86,8 @@ grunt.initConfig({
     options: {
       sort: true,
       extension: '{*.png,*.jpg,*.JPEG}',
-      lazyLoadRegex: /LazyLoadImg_[0-9]{0,}_jpg/
+      lazyLoadRegex: /LazyLoadImg_[0-9]{0,}_jpg/,
+      withTTF: true
     },
     files: {
       'dest/resource.js': ['res'],
@@ -107,3 +114,6 @@ v 0.2.1
 
 v 0.2.2
 * 新增对文件名中`-`字符的处理。
+
+v 0.2.3
+* 新增对ttf(字体)文件的支持。

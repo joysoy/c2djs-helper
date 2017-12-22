@@ -42,7 +42,8 @@ module.exports = function (grunt) {
                 options: {
                     sort: true,
                     extension: '{*.png,*.jpg,*.JPEG}',
-                    lazyLoadRegex: /LazyLoadImg_[0-9]{0,}_jpg/
+                    lazyLoadRegex: /LazyLoadImg_[0-9]{0,}_jpg/,
+                    withTTF: true
                 },
                 files: {
                     'tmp/custom/resource.js': ['test/fixtures/res']

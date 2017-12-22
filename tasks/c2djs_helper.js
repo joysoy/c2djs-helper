@@ -43,7 +43,8 @@ module.exports = function (grunt) {
         var options = this.options({
             sort: false,
             extension: '*.png',
-            lazyLoadRegex: ''
+            lazyLoadRegex: '',
+            withTTF: false
         });
 
         // to avoid the duplicate resource name in the res object
@@ -104,6 +105,21 @@ module.exports = function (grunt) {
             }
             resource_file += '\tg_resources.push(res[i]);\n';
             resource_file += '}\n';
+
+            if(options.withTTF === true) {
+                var font_files = grunt.file.expand({cwd: f.src.toString()}, ['**/' + '{*.ttf,*.TTF}']);
+                    font_files.forEach(function (file) {
+                        var pathObj = path.parse(file);
+                        var dir = pathObj.dir.length > 0 ? pathObj.dir + '/' : '';
+                        var resName = pathObj.name;
+
+                        resource_file += '\ng_resources.push({\n';
+                        resource_file += '\ttype:"font",\n';
+                        resource_file += '\tname:"' + resName + '",\n';
+                        resource_file += '\tsrcs:["' + f.src.toString() + '/' + dir + pathObj.base + '"]\n';
+                        resource_file += '});\n';
+                    });
+            }
 
             grunt.file.write(
                 f.dest,

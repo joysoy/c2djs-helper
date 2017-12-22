@@ -16,3 +16,9 @@ for (var i in res) {
 		continue;
 	g_resources.push(res[i]);
 }
+
+g_resources.push({
+	type:"font",
+	name:"FZY3JW",
+	srcs:["test/fixtures/res/font/FZY3JW.ttf"]
+});
